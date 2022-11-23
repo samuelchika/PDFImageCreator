@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&family=Maven+Pro&family=Nunito+Sans:wght@300&display=swap');
 .App {
   text-align: center;
+}
+
+.alumni {
+  font-family: "Alumni Sans Inline One"
+}
+.maven { 
+  font-family: "Maven Pro";
+}
+.nunito {
+  font-family: "Nunitor Sans";
 }
 
 .App-logo {
