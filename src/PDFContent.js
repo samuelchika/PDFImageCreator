@@ -1,4 +1,6 @@
-import React from 'react'
+import React from 'react';
+import { FaUser, FaPhoneAlt, FaHandshake } from 'react-icons/fa';
+import { ImLocation } from 'react-icons/im';
 
 const PDFContent = () => {
   const product = {
@@ -60,16 +62,20 @@ const PDFContent = () => {
 
   return (
     <div>
-        <div className="mx-auto w-[700px] min-h-[500px] bg-slate-400">
-          <div class="full flex flex-col items-center border-4 border-green-700">
-            <p class="bg-green-700 text-white font-bold font-mavin p-2 w-full">Contact Grabber</p>
-            <div class="flex items-center justify-start p-2 bg-white w-full">
-              {product.firstname + " " + product.lastname} 
+        <div className="mx-auto w-[700px] min-h-[500px] border-4 border-green-700">
+          <div class="full flex flex-col items-center ">
+            <p class="bg-green-700 text-gray-100 tracking-widest font-bold font-nunito p-2 w-full">ISOWO NG</p>
+            <div class="flex items-center justify-center gap-x-6 p-2 bg-white w-full">
+             <span className='flex items-center justify-start'><FaUser /> &nbsp; {product.firstname + " " + product.lastname} </span>
+             <span className='flex items-center justify-start'><FaPhoneAlt /> &nbsp; 0{product.number} </span>
+             
+             {product.negotiable === "1"  && (<span className='flex items-center justify-start'><FaHandshake /> &nbsp; Negotiable</span> )} 
             </div>
+            <div className='flex items-center justify-center w-full'><ImLocation /> &nbsp; {product.location} </div>
           </div>
-            <div className='p-3 text-center'>{product.title}</div>
+            <div className='p-2 text-center text-2xl'>{product.title}</div>
             <div class="w-full">
-              <p className=" font-nunito p-4 text-sm text-justify">
+              <p className=" font-nunito px-4 text-sm text-justify">
                 {product.description}
             </p>
             <div className="grid grid-cols-5 w-full justify-center">
@@ -77,7 +83,26 @@ const PDFContent = () => {
                 <img src={img} alt={index} key={index} className="w-[120px] h-[120px] border-4 border-gray-300 rounded-md my-2 mx-auto" /> 
               ))}
             </div>
+            </div>
+            <div class="w-full flex items-center justify-between ">
+              <div class="bg-green-700 text-white">
+                <h2 class="text-lg">Vehicle Features</h2>
+                <ul id="features" class="gap-x-8 grid grid-cols-2 text-sm list-disc p-4">
+                { product.vehicleFeatures.map((feature, index) => (
+                  <li className='text-left' key={index}>{feature}</li>
+                ))}
+              </ul>
+              </div>
+              <div class="flex flex-col items-end justify-start pb-3">              
+              <span class="text-blue-700 border-2 border-blue-700 px-4 py-2 my-auto ">Grabber ID: IS056</span>
+              <div class="bg-gray-200 p-2 mt-1 border-2 border-white">
+              <h2 class="text-black py-1">Find out More...</h2>
+              <p class="text-blue-700 w-full text-xs bg-white pb-1 px-2"><a href="http://isowo.ng/grab/grabbedProduct/MTVc89jksaghalkdhaj">http://isowo.ng/grab/grabbedProduct/MTVc89jksaghalkdhaj</a></p>
 
+              </div>
+                            <p class="text-xs font-bold bg-red-600  pb-2 px-2">Verify the grabber ID on: <span class=" text-white px-1">https://isowo.ng/verifyGrabber</span></p>
+              </div>
+              
             </div>
 
         </div>
